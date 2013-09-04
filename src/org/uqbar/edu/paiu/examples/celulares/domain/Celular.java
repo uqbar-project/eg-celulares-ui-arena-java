@@ -91,11 +91,11 @@ public class Celular extends Entity {
 	public void setModeloCelular(ModeloCelular modeloCelular) {
 		this.modeloCelular = modeloCelular;
 		this.setRecibeResumenCuenta(modeloCelular.getRequiereResumenCuenta());
+		ObservableUtils.firePropertyChanged(this, "habilitaResumenCuenta", this.getHabilitaResumenCuenta());
 	}
 
 	public void setRecibeResumenCuenta(Boolean recibeResumenCuenta) {
 		this.recibeResumenCuenta = recibeResumenCuenta;
-		ObservableUtils.forceFirePropertyChanged(this, "habilitaResumenCuenta", !this.getHabilitaResumenCuenta());
 	}
 
 	public Boolean getRecibeResumenCuenta() {

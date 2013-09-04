@@ -21,9 +21,9 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>uqbar</groupId>
-			<artifactId>arena</artifactId>
-			<version>${arena-version}</version>
+			<groupId>org.uqbar-project</groupId>
+			<artifactId>arena-jface</artifactId>
+			<version>3.3-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 </project>

@@ -6,7 +6,7 @@ import org.uqbar.arena.windows.Window;
 /**
  * Correr esta clase con el siguiente argument
  * 
- * -Djava.system.class.loader=org.uqbar.arena.aop.ArenaClassLoader
+ * -Djava.system.class.loader=com.uqbar.apo.APOClassLoader
  */
 public class CelularApplication extends Application {
 
