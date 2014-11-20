@@ -87,10 +87,6 @@ public class RepositorioCelulares implements Serializable {
 	
 	/**
 	 * Para el proyecto web - se mantiene la busqueda por Identificador
-	 * 
-	 * @param numero
-	 * @param nombre
-	 * @return
 	 */
 	public Celular searchById(int id) {
 		for (Celular celular : this.data) {

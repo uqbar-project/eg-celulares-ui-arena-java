@@ -41,7 +41,7 @@ public class EditarCelularWindow extends TransactionalDialog<Celular> {
 			.allowNull(false);
 		selector.bindValueToProperty("modeloCelular");
 
-		Binding<ListBuilder<ModeloCelular>> itemsBinding = selector.bindItems( //
+		Binding itemsBinding = selector.bindItems( //
 			new ObservableProperty(RepositorioModelos.getInstance(), "modelos"));
 
 		itemsBinding.setAdapter( //

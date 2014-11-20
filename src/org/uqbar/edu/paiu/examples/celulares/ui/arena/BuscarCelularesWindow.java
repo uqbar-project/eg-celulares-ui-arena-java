@@ -104,7 +104,7 @@ public class BuscarCelularesWindow extends SimpleWindow<BuscadorCelular> {
 	 */
 	protected void createResultsGrid(Panel mainPanel) {
 		Table<Celular> table = new Table<Celular>(mainPanel, Celular.class);
-		table.setHeigth(200);
+		table.setHeight(200);
 		table.setWidth(450);
 
 		table.bindItemsToProperty("resultados");
