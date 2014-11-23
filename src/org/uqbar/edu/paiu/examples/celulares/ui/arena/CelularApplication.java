@@ -11,6 +11,7 @@ import org.uqbar.arena.windows.Window;
 public class CelularApplication extends Application {
 
 	public static void main(String[] args) {
+	   Bootstrap.setup();
 		new CelularApplication().start();
 	}
 

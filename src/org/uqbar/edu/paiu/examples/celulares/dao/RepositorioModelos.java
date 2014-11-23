@@ -11,21 +11,14 @@ import org.uqbar.edu.paiu.examples.celulares.domain.ModeloCelular;
 @SuppressWarnings("serial")
 @Observable
 public class RepositorioModelos implements Serializable {
-	private static RepositorioModelos instance;
+	private static RepositorioModelos instance = new RepositorioModelos();
 	private List<ModeloCelular> data = new ArrayList<ModeloCelular>();
 
 	public static RepositorioModelos getInstance() {
-		if (instance == null) {
-			instance = new RepositorioModelos();
-		}
 		return instance;
 	}
 
-	private RepositorioModelos() {
-		this.create(new ModeloCelular("NOKIA 1100", 150, true));
-		this.create(new ModeloCelular("Motorola M90", 350, true));
-		this.create(new ModeloCelular("Samsung Galaxy SII", 440));
-	}
+	private RepositorioModelos() {}
 
 	public void create(ModeloCelular modelo) {
 		this.data.add(modelo);
