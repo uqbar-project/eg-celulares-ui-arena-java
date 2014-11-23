@@ -1,10 +1,10 @@
 package org.uqbar.edu.paiu.examples.celulares.ui.arena;
 
-import java.io.Serializable;
+import static org.uqbar.edu.paiu.examples.celulares.dao.RepositorioCelulares.repositorioCelulares;
+
 import java.util.List;
 
 import org.uqbar.commons.utils.Observable;
-import org.uqbar.edu.paiu.examples.celulares.dao.RepositorioCelulares;
 import org.uqbar.edu.paiu.examples.celulares.domain.Celular;
 
 /**
@@ -24,7 +24,7 @@ import org.uqbar.edu.paiu.examples.celulares.domain.Celular;
  * @author npasserini
  */
 @Observable
-public class BuscadorCelular implements Serializable {
+public class BuscadorCelular {
 	private Integer numero;
 	private String nombre;
 	private List<Celular> resultados;
@@ -35,7 +35,7 @@ public class BuscadorCelular implements Serializable {
 	// ********************************************************
 
 	public void search() {
-		this.resultados = RepositorioCelulares.getInstance().search(this.numero, this.nombre);
+		this.resultados = repositorioCelulares().search(this.numero, this.nombre);
 	}
 
 	public void clear() {
@@ -44,7 +44,7 @@ public class BuscadorCelular implements Serializable {
 	}
 
 	public void eliminarCelularSeleccionado() {
-		RepositorioCelulares.getInstance().delete(this.getCelularSeleccionado());
+		repositorioCelulares().delete(this.getCelularSeleccionado());
 		this.search();
 		this.celularSeleccionado = null;
 	}

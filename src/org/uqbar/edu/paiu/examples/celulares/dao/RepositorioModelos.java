@@ -1,6 +1,5 @@
 package org.uqbar.edu.paiu.examples.celulares.dao;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,16 +7,15 @@ import org.uqbar.commons.model.UserException;
 import org.uqbar.commons.utils.Observable;
 import org.uqbar.edu.paiu.examples.celulares.domain.ModeloCelular;
 
-@SuppressWarnings("serial")
 @Observable
-public class RepositorioModelos implements Serializable {
+public class RepositorioModelos  {
 	private static RepositorioModelos instance = new RepositorioModelos();
 	private List<ModeloCelular> data = new ArrayList<ModeloCelular>();
 
-	public static RepositorioModelos getInstance() {
+	public static RepositorioModelos repositorioModelos() {
 		return instance;
 	}
-
+	
 	private RepositorioModelos() {}
 
 	public void create(ModeloCelular modelo) {

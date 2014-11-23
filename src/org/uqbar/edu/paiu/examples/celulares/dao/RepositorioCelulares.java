@@ -2,27 +2,23 @@ package org.uqbar.edu.paiu.examples.celulares.dao;
 
 import static java.util.stream.Collectors.toList;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.uqbar.commons.model.UserException;
 import org.uqbar.commons.utils.Observable;
 import org.uqbar.edu.paiu.examples.celulares.domain.Celular;
-
-import com.ibm.icu.util.BytesTrie.Result;
 
 /**
  * 
  * @author npasserini
  */
 @Observable
-public class RepositorioCelulares implements Serializable {
+public class RepositorioCelulares {
 	private static RepositorioCelulares instance = new RepositorioCelulares();
 	private List<Celular> data = new ArrayList<Celular>();
 
-	public static synchronized RepositorioCelulares getInstance() {
+	public static RepositorioCelulares repositorioCelulares() {
 		return instance;
 	}
 	

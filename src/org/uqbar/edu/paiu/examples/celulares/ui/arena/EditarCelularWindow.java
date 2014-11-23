@@ -1,5 +1,7 @@
 package org.uqbar.edu.paiu.examples.celulares.ui.arena;
 
+import static org.uqbar.edu.paiu.examples.celulares.dao.RepositorioModelos.repositorioModelos;
+
 import org.uqbar.arena.aop.windows.TransactionalDialog;
 import org.uqbar.arena.bindings.ObservableProperty;
 import org.uqbar.arena.bindings.PropertyAdapter;
@@ -11,10 +13,8 @@ import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.Selector;
 import org.uqbar.arena.widgets.TextBox;
 import org.uqbar.arena.windows.WindowOwner;
-import org.uqbar.edu.paiu.examples.celulares.dao.RepositorioModelos;
 import org.uqbar.edu.paiu.examples.celulares.domain.Celular;
 import org.uqbar.edu.paiu.examples.celulares.domain.ModeloCelular;
-import org.uqbar.lacar.ui.model.ListBuilder;
 import org.uqbar.lacar.ui.model.bindings.Binding;
 
 public class EditarCelularWindow extends TransactionalDialog<Celular> {
@@ -41,7 +41,7 @@ public class EditarCelularWindow extends TransactionalDialog<Celular> {
 		selector.bindValueToProperty("modeloCelular");
 
 		Binding itemsBinding = selector.bindItems( //
-			new ObservableProperty(RepositorioModelos.getInstance(), "modelos"));
+			new ObservableProperty(repositorioModelos(), "modelos"));
 
 		itemsBinding.setAdapter( //
 			new PropertyAdapter(ModeloCelular.class, "descripcionEntera"));
