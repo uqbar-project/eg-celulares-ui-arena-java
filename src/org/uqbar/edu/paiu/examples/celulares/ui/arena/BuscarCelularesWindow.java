@@ -2,7 +2,6 @@ package org.uqbar.edu.paiu.examples.celulares.ui.arena;
 
 import java.awt.Color;
 
-import org.uqbar.arena.actions.MessageSend;
 import org.uqbar.arena.bindings.NotNullObservable;
 import org.uqbar.arena.bindings.Transformer;
 import org.uqbar.arena.layout.ColumnLayout;
@@ -80,17 +79,17 @@ public class BuscarCelularesWindow extends SimpleWindow<BuscadorCelular> {
 	protected void addActions(Panel actionsPanel) {
 		new Button(actionsPanel)
 			.setCaption("Buscar")
-			.onClick(new MessageSend(this.getModelObject(), "search"))
+			.onClick(getModelObject()::search)
 			.setAsDefault()
 			.disableOnError();
 
 		new Button(actionsPanel) //
 			.setCaption("Limpiar")
-			.onClick(new MessageSend(this.getModelObject(), "clear"));
+			.onClick(getModelObject()::clear);
 
 		new Button(actionsPanel)//
 			.setCaption("Nuevo Celular")
-			.onClick(new MessageSend(this, "crearCelular"));
+			.onClick(this::crearCelular);
 	}
 
 	// *************************************************************************
@@ -148,11 +147,11 @@ public class BuscarCelularesWindow extends SimpleWindow<BuscadorCelular> {
 
 		Button edit = new Button(actionsPanel);
 		edit.setCaption("Editar");
-		edit.onClick(new MessageSend(this, "modificarCelular"));
+		edit.onClick(this::modificarCelular);
 
 		Button remove = new Button(actionsPanel);
 		remove.setCaption("Borrar");
-		remove.onClick(new MessageSend(this.getModelObject(), "eliminarCelularSeleccionado"));
+		remove.onClick(getModelObject()::eliminarCelularSeleccionado);
 
 		// Deshabilitar los botones si no hay ningún elemento seleccionado en la grilla.
 		NotNullObservable elementSelected = new NotNullObservable("celularSeleccionado");
@@ -173,7 +172,7 @@ public class BuscarCelularesWindow extends SimpleWindow<BuscadorCelular> {
 	}
 
 	protected void openDialog(Dialog<?> dialog) {
-		dialog.onAccept(new MessageSend(this.getModelObject(), "search"));
+		dialog.onAccept(getModelObject()::search);
 		dialog.open();
 	}
 

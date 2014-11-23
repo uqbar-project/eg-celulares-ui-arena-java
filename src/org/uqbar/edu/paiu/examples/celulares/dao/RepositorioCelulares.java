@@ -1,12 +1,17 @@
 package org.uqbar.edu.paiu.examples.celulares.dao;
 
+import static java.util.stream.Collectors.toList;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.uqbar.commons.model.UserException;
 import org.uqbar.commons.utils.Observable;
 import org.uqbar.edu.paiu.examples.celulares.domain.Celular;
+
+import com.ibm.icu.util.BytesTrie.Result;
 
 /**
  * 
@@ -69,15 +74,10 @@ public class RepositorioCelulares implements Serializable {
 	 * la búsqueda (23, "Gonza")
 	 */
 	public List<Celular> search(Integer numero, String nombre) {
-		List<Celular> resultados = new ArrayList<Celular>();
-
-		for (Celular celular : this.data) {
-			if (match(numero, celular.getNumero()) && match(nombre, celular.getNombre())) {
-				resultados.add(celular);
-			}
-		}
-
-		return resultados;
+	   return data
+	         .stream()
+	         .filter(c -> match(numero, c.getNumero()) && match(nombre, c.getNombre()))
+	         .collect(toList());
 	}
 
 	protected boolean match(Object expectedValue, Object realValue) {
@@ -89,12 +89,7 @@ public class RepositorioCelulares implements Serializable {
 	 * Para el proyecto web - se mantiene la busqueda por Identificador
 	 */
 	public Celular searchById(int id) {
-		for (Celular celular : this.data) {
-			if (celular.getId().equals(id)) {
-				return celular;
-			}
-		}
-		return null;
+	   return data.stream().filter(c -> c.getId().equals(id)).findAny().orElse(null);
 	}
 
 }

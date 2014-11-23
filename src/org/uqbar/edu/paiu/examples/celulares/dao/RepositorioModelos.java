@@ -31,15 +31,14 @@ public class RepositorioModelos implements Serializable {
 		this.data.add(modelo);
 	}
 
-	public ModeloCelular get(String descripcion) {
-		for (ModeloCelular modelo : this.data) {
-			if (modelo.getDescripcion().equals(descripcion)) {
-				return modelo;
-			}
-		}
-
-		throw new UserException("No se encontró el modelo de celular: " + descripcion);
-	}
+   public ModeloCelular get(String descripcion) {
+      return this.data
+            .stream()
+            .filter(m -> m.getDescripcion().equals(descripcion))
+            .findAny()
+            .orElseThrow(() -> //
+                  new UserException("No se encontró el modelo de celular: " + descripcion));
+   }
 
 	public List<ModeloCelular> getModelos() {
 		return this.data;

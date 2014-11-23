@@ -1,6 +1,5 @@
 package org.uqbar.edu.paiu.examples.celulares.ui.arena;
 
-import org.uqbar.arena.actions.MessageSend;
 import org.uqbar.arena.aop.windows.TransactionalDialog;
 import org.uqbar.arena.bindings.ObservableProperty;
 import org.uqbar.arena.bindings.PropertyAdapter;
@@ -57,12 +56,12 @@ public class EditarCelularWindow extends TransactionalDialog<Celular> {
 	protected void addActions(Panel actions) {
 		new Button(actions)
 			.setCaption("Aceptar")
-			.onClick(new MessageSend(this, "accept"))
+			.onClick(this::accept)
 			.setAsDefault()
 			.disableOnError();
 
 		new Button(actions) //
 			.setCaption("Cancelar")
-			.onClick(new MessageSend(this, "cancel"));
+			.onClick(this::cancel);
 	}
 }
