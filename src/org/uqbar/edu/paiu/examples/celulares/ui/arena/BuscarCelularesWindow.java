@@ -3,7 +3,6 @@ package org.uqbar.edu.paiu.examples.celulares.ui.arena;
 import java.awt.Color;
 
 import org.uqbar.arena.bindings.NotNullObservable;
-import org.uqbar.arena.bindings.Transformer;
 import org.uqbar.arena.layout.ColumnLayout;
 import org.uqbar.arena.layout.HorizontalLayout;
 import org.uqbar.arena.widgets.Button;
@@ -24,6 +23,7 @@ import org.uqbar.edu.paiu.examples.celulares.domain.Celular;
  * 
  * @author ?
  */
+@SuppressWarnings("serial")
 public class BuscarCelularesWindow extends SimpleWindow<BuscadorCelular> {
 
 	public BuscarCelularesWindow(WindowOwner parent) {

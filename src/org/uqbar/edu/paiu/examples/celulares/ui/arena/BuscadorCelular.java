@@ -1,6 +1,6 @@
 package org.uqbar.edu.paiu.examples.celulares.ui.arena;
 
-import static org.uqbar.edu.paiu.examples.celulares.dao.RepositorioCelulares.repositorioCelulares;
+import static org.uqbar.edu.paiu.examples.celulares.home.RepositorioCelulares.repositorioCelulares;
 
 import java.util.List;
 

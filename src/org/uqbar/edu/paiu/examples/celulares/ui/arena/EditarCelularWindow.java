@@ -1,6 +1,6 @@
 package org.uqbar.edu.paiu.examples.celulares.ui.arena;
 
-import static org.uqbar.edu.paiu.examples.celulares.dao.RepositorioModelos.repositorioModelos;
+import static org.uqbar.edu.paiu.examples.celulares.home.RepositorioModelos.repositorioModelos;
 
 import org.uqbar.arena.aop.windows.TransactionalDialog;
 import org.uqbar.arena.bindings.ObservableProperty;
@@ -15,12 +15,20 @@ import org.uqbar.arena.widgets.TextBox;
 import org.uqbar.arena.windows.WindowOwner;
 import org.uqbar.edu.paiu.examples.celulares.domain.Celular;
 import org.uqbar.edu.paiu.examples.celulares.domain.ModeloCelular;
+import org.uqbar.lacar.ui.model.ListBuilder;
 import org.uqbar.lacar.ui.model.bindings.Binding;
+
 
 public class EditarCelularWindow extends TransactionalDialog<Celular> {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public EditarCelularWindow(WindowOwner owner, Celular model) {
 		super(owner, model);
+		this.setTitle("Editar Celulares");
 	}
 
 	@Override
@@ -40,8 +48,8 @@ public class EditarCelularWindow extends TransactionalDialog<Celular> {
 			.allowNull(false);
 		selector.bindValueToProperty("modeloCelular");
 
-		Binding itemsBinding = selector.bindItems( //
-			new ObservableProperty(repositorioModelos(), "modelos"));
+		Binding<ModeloCelular, Selector<ModeloCelular>, ListBuilder<ModeloCelular>> itemsBinding = selector.bindItems( //
+			new ObservableProperty<ModeloCelular>(repositorioModelos(), "modelos"));
 
 		itemsBinding.setAdapter( //
 			new PropertyAdapter(ModeloCelular.class, "descripcionEntera"));
@@ -51,7 +59,7 @@ public class EditarCelularWindow extends TransactionalDialog<Celular> {
 		new CheckBox(form).bindValueToProperty("recibeResumenCuenta");
 
 	}
-
+	
 	@Override
 	protected void addActions(Panel actions) {
 		new Button(actions)
@@ -64,4 +72,5 @@ public class EditarCelularWindow extends TransactionalDialog<Celular> {
 			.setCaption("Cancelar")
 			.onClick(this::cancel);
 	}
+
 }
