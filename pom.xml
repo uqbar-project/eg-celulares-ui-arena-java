@@ -2,12 +2,15 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.uqbar.edu.paiu</groupId>
 	<artifactId>celulares-ui-arena</artifactId>
-	<packaging>jar</packaging>
+	<name>Ejemplo de Celulares con Arena y Java</name>
 	<version>3.5-SNAPSHOT</version>
-	<name>celulares-ui-arena</name>
-	<url>http://maven.apache.org</url>
+
+	<parent>
+	    <groupId>org.uqbar-project</groupId>
+	    <artifactId>arena-parent</artifactId>
+	    <version>3.5.1</version>
+    </parent>		
 
 	<dependencies>
 		<dependency>
@@ -16,7 +19,7 @@
 			<version>3.5.1</version>
 		</dependency>
 		<dependency>
-			<groupId>org.uqbar.edu.paiu</groupId>
+			<groupId>org.uqbar-project</groupId>
 			<artifactId>celulares-domain</artifactId>
 			<version>3.0.0</version>
 		</dependency>
