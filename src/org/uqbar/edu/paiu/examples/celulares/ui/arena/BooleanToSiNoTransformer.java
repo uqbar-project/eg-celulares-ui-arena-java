@@ -11,6 +11,6 @@ import org.uqbar.edu.paiu.examples.celulares.domain.Celular;
 public final class BooleanToSiNoTransformer implements Transformer<Celular, String> {
 	@Override
 	public String transform(Celular celular) {
-		return celular.getRecibeResumenCuenta() ? "SÍ" : "NO";
+		return celular.getRecibeResumenCuenta() ? "SI" : "NO";
 	}
 }
