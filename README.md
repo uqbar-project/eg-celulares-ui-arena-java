@@ -10,3 +10,5 @@ Ejemplo de un A-B-M (Alta-Baja-Modificación) completo de una lista de clientes 
 * Las vistas de edición y nuevo se reutilizan, ya que CrearCelularWindow hereda de EditarCelularWindow
  * También muestra cómo trabajar un Dialog, una ventana modal que toma el control de flujo de la aplicación
  * Al dar de alta o modificar un cliente de la compañía (botón Aceptar) eso refresca la lista de clientes
+
+![Busqueda de Celulares](doc/BusquedaCelulares.PNG)
