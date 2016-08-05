@@ -73,8 +73,8 @@ public class BuscarCelularesWindow extends SimpleWindow<BuscadorCelular> {
 	 * la acción que se dispara cuando el usuario presiona click Para que el binding sea flexible necesito
 	 * decirle objeto al que disparo la acción y el mensaje a enviarle Contra: estoy atado a tener métodos sin
 	 * parámetros. Eso me impide poder pasarle parámetros como en el caso del alta/modificación.
-	 * Buscar/Limpiar -> son acciones que resuelve el modelo (BuscadorCelular) Nuevo -> necesita disparar una
-	 * pantalla de alta, entonces lo resuelve la vista (this)
+	 * Buscar/Limpiar: son acciones que resuelve el modelo (BuscadorCelular) 
+	 * Nuevo: necesita disparar una pantalla de alta, entonces lo resuelve la vista (this)
 	 * 
 	 */
 	@Override
@@ -119,7 +119,6 @@ public class BuscarCelularesWindow extends SimpleWindow<BuscadorCelular> {
 	 * en el caso del número o el nombre 2) contra un transformer que recibe el model y devuelve un tipo
 	 * (generalmente String), como en el caso de Recibe Resumen de Cuenta
 	 * 
-	 * @param table
 	 */
 	protected void describeResultsGrid(Table<Celular> table) {
 		new Column<Celular>(table) //

@@ -16,10 +16,4 @@ public class CrearCelularWindow extends EditarCelularWindow {
 		this.setTitle("agregar un nuevo Celular");
 	}
 
-	@Override
-	protected void executeTask() {
-		getRepoCelulares().create(this.getModelObject());
-		super.executeTask();
-	}
-
 }

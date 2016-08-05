@@ -56,10 +56,11 @@ public class EditarCelularWindow extends TransactionalDialog<Celular> {
 
 		itemsBinding.setAdapter( //
 			new PropertyAdapter(ModeloCelular.class, "descripcionEntera"));
-
 		
 		new Label(form).setText("Recibe resumen cuenta en domicilio");
-		new CheckBox(form).bindValueToProperty("recibeResumenCuenta");
+		CheckBox chkRecibe = new CheckBox(form);
+		chkRecibe.bindValueToProperty("recibeResumenCuenta");
+		chkRecibe.bindEnabledToProperty("habilitaResumenCuenta");
 
 	}
 	
@@ -84,4 +85,14 @@ public class EditarCelularWindow extends TransactionalDialog<Celular> {
 		return (RepositorioModelos) ApplicationContext.getInstance().getSingleton(ModeloCelular.class);
 	}
 
+	@Override 
+	public void executeTask() {
+		Celular modelObject = this.getModelObject();
+		if (modelObject.isNew()) {
+			getRepoCelulares().create(modelObject);
+		} else {
+			getRepoCelulares().update(modelObject);
+		}
+		super.executeTask();
+	}
 }
