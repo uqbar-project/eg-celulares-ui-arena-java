@@ -1,7 +1,5 @@
 package org.uqbar.edu.paiu.examples.celulares.ui.arena;
 
-import static org.uqbar.edu.paiu.examples.celulares.home.RepositorioModelos.repositorioModelos;
-
 import org.uqbar.arena.aop.windows.TransactionalDialog;
 import org.uqbar.arena.bindings.ObservableProperty;
 import org.uqbar.arena.bindings.PropertyAdapter;
@@ -13,10 +11,14 @@ import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.Selector;
 import org.uqbar.arena.widgets.TextBox;
 import org.uqbar.arena.windows.WindowOwner;
-import org.uqbar.edu.paiu.examples.celulares.domain.Celular;
-import org.uqbar.edu.paiu.examples.celulares.domain.ModeloCelular;
+import org.uqbar.commons.utils.ApplicationContext;
 import org.uqbar.lacar.ui.model.ListBuilder;
 import org.uqbar.lacar.ui.model.bindings.Binding;
+
+import ar.edu.celulares.domain.Celular;
+import ar.edu.celulares.domain.ModeloCelular;
+import ar.edu.celulares.repo.RepositorioCelulares;
+import ar.edu.celulares.repo.RepositorioModelos;
 
 
 public class EditarCelularWindow extends TransactionalDialog<Celular> {
@@ -37,15 +39,16 @@ public class EditarCelularWindow extends TransactionalDialog<Celular> {
 		form.setLayout(new ColumnLayout(2));
 
 		new Label(form).setText("Número");
-		new TextBox(form).bindValueToProperty("numero");
+		new TextBox(form).setWidth(150).bindValueToProperty("numero");
 
 		new Label(form).setText("Nombre del cliente");
-		new TextBox(form).bindValueToProperty("nombre");
+		new TextBox(form).setWidth(250).bindValueToProperty("nombre");
 
 		new Label(form).setText("Modelo del aparato");
 		
 		Selector<ModeloCelular> selector = new Selector<ModeloCelular>(form) //
 			.allowNull(false);
+		selector.setWidth(150);
 		selector.bindValueToProperty("modeloCelular");
 
 		Binding<ModeloCelular, Selector<ModeloCelular>, ListBuilder<ModeloCelular>> itemsBinding = selector.bindItems( //
@@ -71,6 +74,14 @@ public class EditarCelularWindow extends TransactionalDialog<Celular> {
 		new Button(actions) //
 			.setCaption("Cancelar")
 			.onClick(this::cancel);
+	}
+
+	public RepositorioCelulares getRepoCelulares() {
+		return (RepositorioCelulares) ApplicationContext.getInstance().getSingleton(Celular.class);
+	}
+
+	public RepositorioModelos repositorioModelos() {
+		return (RepositorioModelos) ApplicationContext.getInstance().getSingleton(ModeloCelular.class);
 	}
 
 }

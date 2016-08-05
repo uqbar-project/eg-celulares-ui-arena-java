@@ -14,7 +14,9 @@ import org.uqbar.arena.widgets.tables.Table;
 import org.uqbar.arena.windows.Dialog;
 import org.uqbar.arena.windows.SimpleWindow;
 import org.uqbar.arena.windows.WindowOwner;
-import org.uqbar.edu.paiu.examples.celulares.domain.Celular;
+
+import ar.edu.celulares.applicationModel.BuscadorCelular;
+import ar.edu.celulares.domain.Celular;
 
 /**
  * Ventana de búsqueda de celulares.
@@ -60,10 +62,10 @@ public class BuscarCelularesWindow extends SimpleWindow<BuscadorCelular> {
 		searchFormPanel.setLayout(new ColumnLayout(2));
 
 		new Label(searchFormPanel).setText("Número").setForeground(Color.BLUE);
-		new TextBox(searchFormPanel).bindValueToProperty("numero");
+		new TextBox(searchFormPanel).setWidth(150).bindValueToProperty("numero");
 
 		new Label(searchFormPanel).setText("Nombre del cliente").setForeground(Color.BLUE);
-		new TextBox(searchFormPanel).bindValueToProperty("nombre");
+		new TextBox(searchFormPanel).setWidth(150).bindValueToProperty("nombre");
 	}
 
 	/**
@@ -103,7 +105,7 @@ public class BuscarCelularesWindow extends SimpleWindow<BuscadorCelular> {
 	 */
 	protected void createResultsGrid(Panel mainPanel) {
 		Table<Celular> table = new Table<Celular>(mainPanel, Celular.class);
-		table.setHeight(200);
+		table.setNumberVisibleRows(10);
 		table.setWidth(450);
 
 		table.bindItemsToProperty("resultados");
@@ -138,7 +140,7 @@ public class BuscarCelularesWindow extends SimpleWindow<BuscadorCelular> {
 		Column<Celular> ingresoColumn = new Column<Celular>(table);
 		ingresoColumn.setTitle("Recibe resumen de cuenta");
 		ingresoColumn.setFixedSize(50);
-		ingresoColumn.bindContentsToTransformer(new BooleanToSiNoTransformer());
+		ingresoColumn.bindContentsToProperty("recibeResumenCuenta").setTransformer(new BooleanToSiNoTransformer());
 	}
 
 	protected void createGridActions(Panel mainPanel) {

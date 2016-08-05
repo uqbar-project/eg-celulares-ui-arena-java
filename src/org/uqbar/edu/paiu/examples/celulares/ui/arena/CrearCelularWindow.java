@@ -1,8 +1,8 @@
 package org.uqbar.edu.paiu.examples.celulares.ui.arena;
 
 import org.uqbar.arena.windows.WindowOwner;
-import org.uqbar.edu.paiu.examples.celulares.domain.Celular;
-import org.uqbar.edu.paiu.examples.celulares.home.RepositorioCelulares;
+
+import ar.edu.celulares.domain.Celular;
 
 public class CrearCelularWindow extends EditarCelularWindow {
 
@@ -18,8 +18,8 @@ public class CrearCelularWindow extends EditarCelularWindow {
 
 	@Override
 	protected void executeTask() {
-		RepositorioCelulares.repositorioCelulares().create(this.getModelObject());
+		getRepoCelulares().create(this.getModelObject());
 		super.executeTask();
 	}
-	
+
 }
