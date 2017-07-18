@@ -129,6 +129,7 @@ public class BuscarCelularesWindow extends SimpleWindow<BuscadorCelular> {
 		new Column<Celular>(table) //
 			.setTitle("Número")
 			.setFixedSize(100)
+			.alignRight()
 			.bindContentsToProperty("numero");
 
 		Column<Celular> modeloColumn = new Column<Celular>(table);

@@ -2,7 +2,7 @@ package org.uqbar.edu.paiu.examples.celulares.ui.arena.runnable;
 
 import org.uqbar.arena.Application;
 import org.uqbar.arena.windows.Window;
-import org.uqbar.commons.utils.ApplicationContext;
+import org.uqbar.commons.applicationContext.ApplicationContext;
 import org.uqbar.edu.paiu.examples.celulares.ui.arena.BuscarCelularesWindow;
 
 import ar.edu.celulares.domain.Celular;
