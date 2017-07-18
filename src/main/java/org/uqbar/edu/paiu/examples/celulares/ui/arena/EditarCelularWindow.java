@@ -7,6 +7,7 @@ import org.uqbar.arena.layout.ColumnLayout;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.CheckBox;
 import org.uqbar.arena.widgets.Label;
+import org.uqbar.arena.widgets.NumericField;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.Selector;
 import org.uqbar.arena.widgets.TextBox;
@@ -39,7 +40,7 @@ public class EditarCelularWindow extends TransactionalDialog<Celular> {
 		form.setLayout(new ColumnLayout(2));
 
 		new Label(form).setText("Número");
-		new TextBox(form).setWidth(150).bindValueToProperty("numero");
+		new NumericField(form).setWidth(150).bindValueToProperty("numero");
 
 		new Label(form).setText("Nombre del cliente");
 		new TextBox(form).setWidth(250).bindValueToProperty("nombre");
